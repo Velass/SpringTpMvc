@@ -1,5 +1,5 @@
 
-package fr.diginamic.Spring_Data_JPA.repository;
+package fr.diginamic.SpringMVC.repository;
 
 import java.util.List;
 
@@ -8,8 +8,10 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import fr.diginamic.Spring_Data_JPA.model.Animal;
-import fr.diginamic.Spring_Data_JPA.model.Person;
+import fr.diginamic.SpringMVC.model.Animal;
+import fr.diginamic.SpringMVC.model.Person;
+
+
 
 @Repository
 public interface PersonRepository extends CrudRepository<Person, Integer>, PersonRepositoryCustom {

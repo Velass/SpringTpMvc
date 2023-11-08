@@ -1,4 +1,4 @@
-package fr.diginamic.Spring_Data_JPA.repository;
+package fr.diginamic.SpringMVC.repository;
 
 
 public interface PersonRepositoryCustom {

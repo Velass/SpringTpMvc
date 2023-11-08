@@ -1,4 +1,4 @@
-package fr.diginamic.Spring_Data_JPA.model;
+package fr.diginamic.SpringMVC.model;
 
 import java.util.List;
 

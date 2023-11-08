@@ -1,8 +1,8 @@
-package fr.diginamic.Spring_Data_JPA.model;
+package fr.diginamic.SpringMVC.model;
 
 import java.util.List;
 
-import fr.diginamic.Spring_Data_JPA.enums.Sex;
+import fr.diginamic.SpringMVC.enums.Sex;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
