@@ -1,0 +1,30 @@
+<!-- resources/templates/nom-entité_create.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" th:href="@{/css/create.css}" />
+    <meta charset="UTF-8">
+    <title>Créer un animal</title>
+</head>
+
+<body>
+    <h1>Créer une espèce</h1>
+    <form th:object="${species}" th:action="@{/species}" method="post">
+        <input type="hidden" th:field="*{id}" />
+        <div>
+            <label for="Nom">Nom: </label>
+            <input type="text" th:field="*{commonName}" id="Nom" />
+        </div>
+        <div>
+            <label for="couleur"> Nom Latin:</label>
+            <input type="text" th:field="*{latinName}" id="couleur" />
+        </div>
+        <div>
+            <input type="submit" class="button" value="Sauver" onclick="window.location='/species'" />
+            <input type="button" class="button" value="Retour" onclick="window.location='/species'" />
+        </div>
+    </form>
+</body>
+
+</html>

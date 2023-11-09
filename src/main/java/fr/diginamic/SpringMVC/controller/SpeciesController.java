@@ -4,40 +4,55 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import fr.diginamic.SpringMVC.model.Species;
 import fr.diginamic.SpringMVC.repository.SpeciesRepository;
 
-@RestController
+@Controller
 @RequestMapping("/species")
 public class SpeciesController {
 
     @Autowired
     private SpeciesRepository speciesRepository;
 
-    @GetMapping("/species")
-    public List<Species> getAllSpecies() {
-        return speciesRepository.findAll();
+    @GetMapping
+    public String getAllSpecies(Model model) {
+       List<Species> species = speciesRepository.findAll();
+       model.addAttribute("species", species);
+        return "species/speciesVue";
     }
 
-    @GetMapping("/species/{id}")
+    @GetMapping("/{id}")
     public String initUpdate(@PathVariable("id") Integer id, Model model) {
         Optional<Species> species = speciesRepository.findById(id);
         if (species.isPresent()) {
-            model.addAttribute(species.get());
-            return "update_species";
+            model.addAttribute("species",species.get());
+            return "species/speciesVueCreate";
         }
         return "error";
     }
 
-    @GetMapping("/species/create")
+    @GetMapping("/create")
     public String initCreate(Model model) {
-        model.addAttribute(new Species());
-        return "create_species";
+        model.addAttribute("species",new Species());
+        return "species/speciesVueCreate";
+    }
+
+        @PostMapping()
+    public String createOrUpdate(Species species) {
+        this.speciesRepository.save(species);
+        return "redirect:/species";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable("id") Integer specieslId) {
+        Optional<Species> speciesToDelete = this.speciesRepository.findById(specieslId);
+        speciesToDelete.ifPresent(specie -> this.speciesRepository.delete(specie));
+        return "redirect:/species";
     }
 }
