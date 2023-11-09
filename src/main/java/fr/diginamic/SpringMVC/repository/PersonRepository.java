@@ -25,5 +25,6 @@ public interface PersonRepository extends CrudRepository<Person, Integer>, Perso
     @Query("from Person p  where :Animal member of p.animals")
     List<Person> findAllPersonByAnimal(@Param("Animal") Animal animals);
     
+    List<Person> findAll();
 
 }

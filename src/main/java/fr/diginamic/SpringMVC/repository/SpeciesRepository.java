@@ -21,4 +21,6 @@ public interface SpeciesRepository extends CrudRepository<Species, Integer> {
     @Query("SELECT s FROM Species s WHERE s.commonName = :commonName")
     List<Species> findAllSpeciesByCommonName(@Param("commonName") String commonName );
 
+    List<Species> findAll();
+
 }

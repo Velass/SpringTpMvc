@@ -23,4 +23,6 @@ public interface AnimalRepository extends CrudRepository<Animal, Integer> {
 
         @Query("SELECT CASE WHEN SIZE(a.persons) > 0 THEN true ELSE false END FROM Animal a WHERE a = :id")
         Boolean hasOwner(@Param("id") Animal id);
+
+        List<Animal> findAll();
 }
