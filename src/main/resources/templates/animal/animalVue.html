@@ -1,0 +1,33 @@
+<!-- resources/templates/nom-entité_create.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" th:href="@{/css/animal.css}" />
+    <meta charset="UTF-8">
+    <title>liste animals</title>
+</head>
+
+<body>
+    <h1>voici la liste</h1>
+    <div th:each="animal : ${animal}" id="liste">
+        <div id="conteneur">
+            <div th:text="${animal.getId}"></div>
+            <div th:text="${animal.getName}"></div>
+            <div th:text="${animal.getColor}"></div>
+            <div th:text="${animal.getSex}"></div>
+            <div>
+                <a th:href="@{'/animal/'+${animal.getId}}">📝</a>
+            </div>
+            <div>
+                <a th:href="@{'/animal/delete/'+${animal.getId}}" onclick="confirm('Êtes-vous sûr ?')"  >🗑️
+                </a>
+            </div>
+        </div>
+    </div>
+    <div>
+        <button type="button" onclick="window.location='/animal/create'">➕ Ajouter un animal</button>
+    </div>
+</body>
+
+</html>
