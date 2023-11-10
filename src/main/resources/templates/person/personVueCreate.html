@@ -5,24 +5,34 @@
 <head>
     <link rel="stylesheet" th:href="@{/css/create.css}" />
     <meta charset="UTF-8">
-    <title>Créer un animal</title>
+    <title>Créer une personne</title>
 </head>
 
 <body>
-    <h1>Créer une espèce</h1>
-    <form th:object="${species}" th:action="@{/species}" method="post">
+    <h1>Créer une personne</h1>
+    <form th:object="${person}" th:action="@{/person}" method="post">
         <input type="hidden" th:field="*{id}" />
         <div>
-            <label for="Nom">Nom: </label>
-            <input type="text" th:field="*{commonName}" id="Nom" />
+            <label for="prenom">Prenom: </label>
+            <input type="text" th:field="*{lastname}" id="Nom" />
         </div>
         <div>
-            <label for="couleur"> Nom Latin:</label>
-            <input type="text" th:field="*{latinName}" id="couleur" />
+            <label for="nom"> Nom:</label>
+            <input type="text" th:field="*{firstname}" id="couleur" />
         </div>
         <div>
-            <input type="submit" class="button" value="Sauver" onclick="window.location='/species'" />
-            <input type="button" class="button" value="Retour" onclick="window.location='/species'" />
+            <label for="age"> age:</label>
+            <input type="text" th:field="*{age}" id="couleur" />
+        </div>
+        <div>
+            <label for="animalsSelect">Choisissez un animal :</label>
+            <select id="animalsSelect" name="animal">
+                <option th:each="animals : ${animalsList}" th:value="${animals.getId}" th:text="${animals.name}"></option>
+            </select>
+        </div>
+        <div>
+            <input type="submit" class="button" value="Sauver" onclick="window.location='/person'" />
+            <input type="button" class="button" value="Retour" onclick="window.location='/person'" />
         </div>
     </form>
 </body>

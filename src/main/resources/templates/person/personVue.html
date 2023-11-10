@@ -10,23 +10,23 @@
 
 <body>
     <h1>voici la liste</h1>
-    <div th:each="species : ${species}" id="liste">
+    <div th:each="person : ${person}" id="liste">
         <div id="conteneur">
-            <div th:text="${species.getId}"></div>
-            <div th:text="${species.getCommonName}"></div>
-            <div th:text="${species.getLatinName}"></div>
-            <!-- <div th:text="${species.getAnimals}"></div> -->
+            <div th:text="${person.getId}"></div>
+            <div th:text="${person.getFirstname}"></div>
+            <div th:text="${person.getLastname}"></div>
+            <div th:text="${person.getAge}"></div>
             <div>
-                <a th:href="@{'/species/'+${species.getId}}">📝</a>
+                <a th:href="@{'/person/'+${person.getId}}">📝</a>
             </div>
             <div>
-                <a th:href="@{'/species/delete/'+${species.getId}}" onclick="confirm('Êtes-vous sûr ?')"  >🗑️
+                <a th:href="@{'/person/delete/'+${person.getId}}" onclick="confirm('Êtes-vous sûr ?')"  >🗑️
                 </a>
             </div>
         </div>
     </div>
     <div>
-        <button type="button" onclick="window.location='/species/create'">➕ Ajouter une espece</button>
+        <button type="button" onclick="window.location='/person/create'">➕ Ajouter une espece</button>
     </div>
 </body>
 
