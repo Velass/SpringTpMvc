@@ -19,7 +19,6 @@
     <h1>voici la liste</h1>
     <div th:each="person : ${person}" id="liste">
         <div id="conteneur">
-            <h3></h3>
             <div th:text="${person.getId}"></div>
             <div th:text="${person.getFirstname}"></div>
             <div th:text="${person.getLastname}"></div>
@@ -33,11 +32,24 @@
             </div>
         </div>
     </div>
-    <div>
-        <button type="button" onclick="window.location='/person/create'">➕ Ajouter une personne</button>
-    </div>
     <footer>
-
+        <div id="manyButton">
+            <div>
+                <a th:href="@{/person/create}">
+                    <button>➕ Ajouter une personne</button>
+                </a>
+            </div>
+            <div>
+                <a th:href="@{/person/deletePeopleWithoutAnimals}" onclick="return confirm('Êtes-vous sûr ?')">
+                    <button>➕ Supprimer les personnes sans animaux</button>
+                </a>
+            </div>
+            <div>
+                <a th:href="@{/person/createManyEntity}">
+                    <button>➕ Ajouter 15 personnes</button>
+                </a>
+            </div>
+        </div>
     </footer>
 </body>
 

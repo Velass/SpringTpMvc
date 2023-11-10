@@ -80,3 +80,29 @@ button {
 button:hover {
     background-color: #45a049;
 }
+
+#manyButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Style pour les boutons */
+#manyButton a {
+    text-decoration: none;
+}
+
+#manyButton button {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#manyButton button:hover {
+    background-color: #45a049; /* Couleur au survol */
+}

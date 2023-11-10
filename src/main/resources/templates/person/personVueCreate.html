@@ -29,8 +29,8 @@
         </div>
         <div>
             <label for="animalsSelect">Choisissez un animal :</label>
-            <select id="animalsSelect" name="animal">
-                <option th:each="animals : ${animalsList}" th:value="${animals.getId}" th:text="${animals.name}"></option>
+            <select id="animalsSelect" name="animal" multiple>
+                <option th:each="animals : ${animalsList}" th:value="${animals.id}" th:text="${animals.name}"></option>
             </select>
         </div>
         <div>

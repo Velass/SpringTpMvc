@@ -28,7 +28,6 @@ public class PersonRepositoryCustomImpl implements PersonRepositoryCustom {
             person.setFirstname("Gerard"+ i); 
             person.setAge(i);
             person.setLastname("Patrick" + i);
-
             em.persist(person);
         }
     }
