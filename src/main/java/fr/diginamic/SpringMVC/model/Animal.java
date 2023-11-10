@@ -28,13 +28,13 @@ public class Animal {
     @Enumerated(EnumType.STRING)
     private Sex sex;
 
-    @ManyToMany(mappedBy = "animals") // Utilisez "animals" pour représenter la relation Many-to-Many
-    private List<Person> persons; // Supposons que vous avez une classe "Person" pour représenter les personnes
+    @ManyToMany(mappedBy = "animals") 
+    private List<Person> persons; 
     
     @ManyToOne
-    @JoinColumn(name = "species_id") // Colonne de la clé étrangère vers Species
+    @JoinColumn(name = "species_id") 
     @NotNull
-    private Species species; // Utilisez @ManyToOne pour représenter la relation Many-to-One avec Species
+    private Species species; 
 
     public Animal() {
     }

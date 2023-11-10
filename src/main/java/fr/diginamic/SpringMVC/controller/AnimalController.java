@@ -30,6 +30,8 @@ public class AnimalController {
     @GetMapping
     public String getAllSpecies(Model model) {
         List<Animal> animal = animalRepository.findAll();
+        List<Species> speciesList = speciesRepository.findAllOrderedByCommonNameAsc();
+        model.addAttribute("speciesList", speciesList);
         model.addAttribute("animal", animal);
         return "animal/animalVue";
 
@@ -57,9 +59,11 @@ public class AnimalController {
 
     @PostMapping()
     @Valid
-    public String createOrUpdate(@Valid Animal animalItem, BindingResult result) {
+    public String createOrUpdate(@Valid Animal animalItem, BindingResult result, Model model) {
+        List<Species> speciesList = speciesRepository.findAllOrderedByCommonNameAsc();
+        model.addAttribute("speciesList", speciesList);
         if (result.hasErrors()) {
-            return "animalVueCreate";
+            return "animal/animalVueCreate";
         }
         this.animalRepository.save(animalItem);
         return "redirect:/animal";

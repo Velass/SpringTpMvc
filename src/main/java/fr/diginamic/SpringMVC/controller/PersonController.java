@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import fr.diginamic.SpringMVC.model.Animal;
 import fr.diginamic.SpringMVC.model.Person;
-import fr.diginamic.SpringMVC.model.Species;
 import fr.diginamic.SpringMVC.repository.AnimalRepository;
 import fr.diginamic.SpringMVC.repository.PersonRepository;
 import jakarta.validation.Valid;
@@ -56,7 +55,9 @@ public class PersonController {
 
     @PostMapping()
     @Valid
-    public String createOrUpdate(@Valid Person person, BindingResult result) {
+    public String createOrUpdate(@Valid Person person, BindingResult result, Model model) {
+        List<Animal> animalsList = animalRepository.findAll();
+        model.addAttribute("animalsList", animalsList);
         if (result.hasErrors()) {
             return "person/personVueCreate";
         }

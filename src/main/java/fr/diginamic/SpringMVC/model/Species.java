@@ -9,7 +9,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -19,10 +18,11 @@ public class Species {
     private int id;
     @Column(name = "common_name")
     @NotBlank
-    @Size()
+    @Size(max = 50)
     private String commonName;
     @Column(name = "latin_name")
     @NotBlank
+    @Size(max = 200)
     private String latinName;
 
     @OneToMany(mappedBy = "species") // Utilisez "species" pour représenter la relation One-to-Many

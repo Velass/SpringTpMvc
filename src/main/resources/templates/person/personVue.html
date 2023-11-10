@@ -5,13 +5,21 @@
 <head>
     <link rel="stylesheet" th:href="@{/css/main.css}" />
     <meta charset="UTF-8">
-    <title>liste animals</title>
+    <title>liste personnes</title>
 </head>
 
 <body>
+    <header>
+        <nav>
+            <a href="http://localhost:8080/person">Person</a>
+            <a href="http://localhost:8080/species">Species</a>
+            <a href="http://localhost:8080/animal">Animal</a>
+        </nav>
+    </header>
     <h1>voici la liste</h1>
     <div th:each="person : ${person}" id="liste">
         <div id="conteneur">
+            <h3></h3>
             <div th:text="${person.getId}"></div>
             <div th:text="${person.getFirstname}"></div>
             <div th:text="${person.getLastname}"></div>
@@ -26,8 +34,11 @@
         </div>
     </div>
     <div>
-        <button type="button" onclick="window.location='/person/create'">➕ Ajouter une espece</button>
+        <button type="button" onclick="window.location='/person/create'">➕ Ajouter une personne</button>
     </div>
+    <footer>
+
+    </footer>
 </body>
 
 </html>

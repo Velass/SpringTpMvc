@@ -5,10 +5,17 @@
 <head>
     <link rel="stylesheet" th:href="@{/css/main.css}" />
     <meta charset="UTF-8">
-    <title>liste animals</title>
+    <title>liste species</title>
 </head>
 
 <body>
+    <header>
+        <nav>
+            <a href="http://localhost:8080/person">Person</a>
+            <a href="http://localhost:8080/species">Species</a>
+            <a href="http://localhost:8080/animal">Animal</a>
+        </nav>
+    </header>
     <h1>voici la liste</h1>
     <div th:each="species : ${species}" id="liste">
         <div id="conteneur">

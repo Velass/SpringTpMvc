@@ -9,16 +9,19 @@
 </head>
 
 <body>
-    <h1>Créer une espèce</h1>
+    <h1 th:if="${id == null}">Créer une Espece</h1>
+    <h1 th:if="${id != null}">Modifier une Espece</h1>
     <form th:object="${species}" th:action="@{/species}" method="post">
         <input type="hidden" th:field="*{id}" />
         <div>
             <label for="Nom">Nom: </label>
             <input type="text" th:field="*{commonName}" id="Nom" />
+            <span th:if="${#fields.hasErrors('commonName')}" th:errors="*{commonName}">Error</span>
         </div>
         <div>
             <label for="couleur"> Nom Latin:</label>
             <input type="text" th:field="*{latinName}" id="couleur" />
+            <span th:if="${#fields.hasErrors('latinName')}" th:errors="*{latinName}">Error</span>
         </div>
         <div>
             <input type="submit" class="button" value="Sauver" onclick="window.location='/species'" />

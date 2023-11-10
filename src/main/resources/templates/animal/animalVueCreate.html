@@ -9,7 +9,8 @@
 </head>
 
 <body>
-    <h1>Créer un Animal</h1>
+    <h1 th:if="${id == null}">Créer un Animal</h1>
+    <h1 th:if="${id != null}">Modifier un Animal</h1>
     <form th:object="${animal}" th:action="@{/animal}" method="post">
         <input type="hidden" th:field="*{id}" />
         <div>
@@ -17,10 +18,12 @@
             <select id="speciesSelect" name="species">
                 <option th:each="species : ${speciesList}" th:value="${species.id}" th:text="${species.commonName}"></option>
             </select>
+            <span th:if="${#fields.hasErrors('species')}" th:errors="*{species}">Error</span>
         </div>
         <div>
             <label for="Nom">Nom: </label>
             <input type="text" th:field="*{name}" id="Nom" />
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error</span>
         </div>
         <div>
             <label for="couleur">Couleur :</label>

@@ -1,9 +1,32 @@
-/* animal.css */
+
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+
+header {
+    background-color: #333; 
+    padding: 15px 0; 
+    text-align: center; 
+}
+
+
+nav {
+    margin-top: 10px; 
+}
+
+nav a {
+    text-decoration: none; 
+    color: #fff; 
+    margin: 0 30px;
+    font-size: 18px; 
+}
+
+nav a:hover {
+    color: #ffd700; 
 }
 
 body {
@@ -19,7 +42,7 @@ h1 {
 
 #liste {
     width: 80%;
-    margin: 0 auto; /* Centrer la liste */
+    margin: 0 auto; 
 }
 
 #conteneur {
