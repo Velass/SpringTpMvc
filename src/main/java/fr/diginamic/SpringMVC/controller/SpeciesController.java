@@ -4,14 +4,17 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.bind.BindResult;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import fr.diginamic.SpringMVC.model.Species;
 import fr.diginamic.SpringMVC.repository.SpeciesRepository;
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/species")
@@ -44,7 +47,11 @@ public class SpeciesController {
     }
 
         @PostMapping()
-    public String createOrUpdate(Species species) {
+        @Valid
+    public String createOrUpdate(@Valid Species species, BindingResult result) {
+        if (result.hasErrors()) {
+            return "speciesVueCreate";
+        }
         this.speciesRepository.save(species);
         return "redirect:/species";
     }

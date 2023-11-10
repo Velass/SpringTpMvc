@@ -8,6 +8,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class Species {
@@ -15,8 +18,11 @@ public class Species {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "common_name")
+    @NotBlank
+    @Size()
     private String commonName;
     @Column(name = "latin_name")
+    @NotBlank
     private String latinName;
 
     @OneToMany(mappedBy = "species") // Utilisez "species" pour représenter la relation One-to-Many

@@ -12,6 +12,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 
 @Entity
@@ -20,6 +22,7 @@ public class Animal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String color;
+    @NotBlank
     private String name;
 
     @Enumerated(EnumType.STRING)
@@ -30,6 +33,7 @@ public class Animal {
     
     @ManyToOne
     @JoinColumn(name = "species_id") // Colonne de la clé étrangère vers Species
+    @NotNull
     private Species species; // Utilisez @ManyToOne pour représenter la relation Many-to-One avec Species
 
     public Animal() {

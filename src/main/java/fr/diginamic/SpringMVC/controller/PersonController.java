@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +17,7 @@ import fr.diginamic.SpringMVC.model.Person;
 import fr.diginamic.SpringMVC.model.Species;
 import fr.diginamic.SpringMVC.repository.AnimalRepository;
 import fr.diginamic.SpringMVC.repository.PersonRepository;
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/person")
@@ -53,7 +55,11 @@ public class PersonController {
     }
 
     @PostMapping()
-    public String createOrUpdate(Person person) {
+    @Valid
+    public String createOrUpdate(@Valid Person person, BindingResult result) {
+        if (result.hasErrors()) {
+            return "person/personVueCreate";
+        }
         this.personRepository.save(person);
         return "redirect:/person";
     }
