@@ -67,7 +67,7 @@ public class SpringMvcApplication implements CommandLineRunner {
 		
 		
 		//personRepository.deletePeopleWithoutAnimals();
-		personRepository.createManyEntity(2);
+		//personRepository.createManyEntity(2);
 
 	}
 
