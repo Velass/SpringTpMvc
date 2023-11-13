@@ -32,8 +32,8 @@ public class PersonRestController {
     }
 
     @PostMapping()
-    public Person createPerson(@RequestBody @Valid Person personToCreate){
-       return personService.createPerson(personToCreate);
+    public Person createPerson(@RequestBody @Valid Person createPerson){
+       return personService.createPerson(createPerson);
     }
 
     @PutMapping()

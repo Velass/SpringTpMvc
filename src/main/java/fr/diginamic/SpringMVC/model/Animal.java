@@ -2,6 +2,8 @@ package fr.diginamic.SpringMVC.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import fr.diginamic.SpringMVC.enums.Sex;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -28,7 +30,8 @@ public class Animal {
     @Enumerated(EnumType.STRING)
     private Sex sex;
 
-    @ManyToMany(mappedBy = "animals") 
+    @ManyToMany(mappedBy = "animals")
+    @JsonIgnore
     private List<Person> persons; 
     
     @ManyToOne

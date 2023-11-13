@@ -32,13 +32,10 @@ public class SpringMvcApplication implements CommandLineRunner {
 		// Effectuez des opérations de démarrage ici
 		System.out.println("L'application démarre.");
 
-		// Annimal Repository
 		animalRepository.findAll().forEach(System.out::println);
 
-		// Person Repository
 		personRepository.findAll().forEach(System.out::println);
 
-		// Species Repository
 		speciesRepository.findAll().forEach(System.out::println);
 
 		// Animal test = new Animal();

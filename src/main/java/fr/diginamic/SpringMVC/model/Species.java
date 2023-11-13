@@ -2,6 +2,8 @@ package fr.diginamic.SpringMVC.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,7 +27,8 @@ public class Species {
     @Size(max = 200)
     private String latinName;
 
-    @OneToMany(mappedBy = "species") // Utilisez "species" pour représenter la relation One-to-Many
+    @OneToMany(mappedBy = "species") 
+    @JsonIgnore
     private List<Animal> animals;
 
     public int getId() {
