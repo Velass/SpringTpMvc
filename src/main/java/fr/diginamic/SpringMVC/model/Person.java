@@ -2,6 +2,8 @@ package fr.diginamic.SpringMVC.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,6 +32,7 @@ public class Person {
     @ManyToMany
     @JoinTable(name = "person_animals", joinColumns = @JoinColumn(name = "person_id"), inverseJoinColumns = @JoinColumn(name = "animals_id"))
     @Column(name = "id_person")
+    @JsonIgnore
     private List<Animal> animals;
 
     public int getId() {
