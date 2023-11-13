@@ -1,4 +1,4 @@
-package fr.diginamic.SpringMVC.model;
+package fr.diginamic.springmvc.model;
 
 import java.util.List;
 

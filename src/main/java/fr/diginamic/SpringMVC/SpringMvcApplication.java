@@ -1,17 +1,19 @@
-package fr.diginamic.SpringMVC;
+package fr.diginamic.springmvc;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
-import fr.diginamic.SpringMVC.repository.AnimalRepository;
-import fr.diginamic.SpringMVC.repository.PersonRepository;
-import fr.diginamic.SpringMVC.repository.SpeciesRepository;
+import fr.diginamic.springmvc.repository.AnimalRepository;
+import fr.diginamic.springmvc.repository.PersonRepository;
+import fr.diginamic.springmvc.repository.SpeciesRepository;
 import jakarta.transaction.Transactional;
 
 @SpringBootApplication
+@EnableAspectJAutoProxy
 public class SpringMvcApplication implements CommandLineRunner {
 
 	@Autowired

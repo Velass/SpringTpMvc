@@ -1,10 +1,10 @@
-package fr.diginamic.SpringMVC.model;
+package fr.diginamic.springmvc.model;
 
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import fr.diginamic.SpringMVC.enums.Sex;
+import fr.diginamic.springmvc.enums.Sex;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;

@@ -1,12 +1,12 @@
-package fr.diginamic.SpringMVC.service;
+package fr.diginamic.springmvc.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import fr.diginamic.SpringMVC.model.Animal;
-import fr.diginamic.SpringMVC.repository.AnimalRepository;
+import fr.diginamic.springmvc.model.Animal;
+import fr.diginamic.springmvc.repository.AnimalRepository;
 import jakarta.validation.Valid;
 
 @Service

@@ -1,12 +1,12 @@
-package fr.diginamic.SpringMVC.service;
+package fr.diginamic.springmvc.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import fr.diginamic.SpringMVC.model.Person;
-import fr.diginamic.SpringMVC.repository.PersonRepository;
+import fr.diginamic.springmvc.model.Person;
+import fr.diginamic.springmvc.repository.PersonRepository;
 import jakarta.validation.Valid;
 
 @Service

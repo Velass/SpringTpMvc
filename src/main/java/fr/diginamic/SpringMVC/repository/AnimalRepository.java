@@ -1,4 +1,4 @@
-package fr.diginamic.SpringMVC.repository;
+package fr.diginamic.springmvc.repository;
 
 
 import java.util.List;
@@ -8,9 +8,9 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import fr.diginamic.SpringMVC.enums.Sex;
-import fr.diginamic.SpringMVC.model.Animal;
-import fr.diginamic.SpringMVC.model.Species;
+import fr.diginamic.springmvc.enums.Sex;
+import fr.diginamic.springmvc.model.Animal;
+import fr.diginamic.springmvc.model.Species;
 
 
 @Repository

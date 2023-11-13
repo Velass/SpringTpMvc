@@ -1,4 +1,4 @@
-package fr.diginamic.SpringMVC.restController;
+package fr.diginamic.springmvc.restController;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
-import fr.diginamic.SpringMVC.model.Animal;
-import fr.diginamic.SpringMVC.service.AnimalService;
+import fr.diginamic.springmvc.model.Animal;
+import fr.diginamic.springmvc.service.AnimalService;
 import jakarta.validation.Valid;
 
 @RestController
@@ -66,4 +66,8 @@ public class AnimalRestController {
     public Animal deleteAnimal(@PathVariable("id") Integer id){
         return animalService.deleteAnimal(id);
     }
+        @GetMapping("/test")
+        public String getTest(){
+            return "un test"  ;
+        }
 }

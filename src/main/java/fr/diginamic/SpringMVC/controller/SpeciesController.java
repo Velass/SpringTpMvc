@@ -1,4 +1,4 @@
-package fr.diginamic.SpringMVC.controller;
+package fr.diginamic.springmvc.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import fr.diginamic.SpringMVC.model.Species;
-import fr.diginamic.SpringMVC.repository.SpeciesRepository;
+import fr.diginamic.springmvc.model.Species;
+import fr.diginamic.springmvc.repository.SpeciesRepository;
 import jakarta.validation.Valid;
 
 @Controller

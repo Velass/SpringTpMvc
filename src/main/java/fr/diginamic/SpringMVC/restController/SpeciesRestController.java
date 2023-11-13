@@ -1,4 +1,4 @@
-package fr.diginamic.SpringMVC.restController;
+package fr.diginamic.springmvc.restController;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
-import fr.diginamic.SpringMVC.model.Species;
-import fr.diginamic.SpringMVC.service.SpeciesService;
+import fr.diginamic.springmvc.model.Species;
+import fr.diginamic.springmvc.service.SpeciesService;
 import jakarta.validation.Valid;
 
 @RestController

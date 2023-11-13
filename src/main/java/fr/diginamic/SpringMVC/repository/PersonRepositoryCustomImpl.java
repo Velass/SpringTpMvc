@@ -1,7 +1,7 @@
-package fr.diginamic.SpringMVC.repository;
+package fr.diginamic.springmvc.repository;
 
 
-import fr.diginamic.SpringMVC.model.Person;
+import fr.diginamic.springmvc.model.Person;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;

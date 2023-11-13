@@ -1,4 +1,4 @@
-package fr.diginamic.SpringMVC.repository;
+package fr.diginamic.springmvc.repository;
 
 
 public interface PersonRepositoryCustom {

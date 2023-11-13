@@ -1,4 +1,4 @@
-package fr.diginamic.SpringMVC.enums;
+package fr.diginamic.springmvc.enums;
 
 public enum Sex {
     M,
