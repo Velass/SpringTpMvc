@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 
-import fr.diginamic.errordto.ErrorDto;
-import fr.diginamic.errordto.InvalidEntityErrorDto;
+import fr.diginamic.springmvc.errordto.ErrorDto;
+import fr.diginamic.springmvc.errordto.InvalidEntityErrorDto;
 import fr.diginamic.springmvc.exception.EntityToCreateHasAnIdException;
 import fr.diginamic.springmvc.exception.EntityToCreateHasNoIdException;
 import jakarta.persistence.EntityNotFoundException;

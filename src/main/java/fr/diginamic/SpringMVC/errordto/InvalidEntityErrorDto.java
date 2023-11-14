@@ -1,4 +1,4 @@
-package fr.diginamic.errordto;
+package fr.diginamic.springmvc.errordto;
 
 import org.springframework.validation.BindingResult;
 
