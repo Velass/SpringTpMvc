@@ -22,7 +22,7 @@ public class AnimalRestController {
     private AnimalService animalService;
 
     @GetMapping()
-    public List<Animal> findAll(){
+    public List<Animal> findAll() {
         return animalService.findAll();
     }
 
@@ -32,42 +32,48 @@ public class AnimalRestController {
     }
 
     // {
-    //     "color": "rouge",
-    //     "name": "Fido",
-    //     "sex": "M",
-    //     "species": {
-    //         "id": 1,
-    //         "commonName": "test",
-    //         "latinName": "test"
-    //     }
+    // "color": "rouge",
+    // "name": "Fido",
+    // "sex": "M",
+    // "species": {
+    // "id": 1,
+    // "commonName": "test",
+    // "latinName": "test"
+    // }
     // }
     @PostMapping()
-    public Animal createAnimal(@RequestBody @Valid Animal createAnimal){
-       return animalService.createAnimal(createAnimal);
+    public Animal createAnimal(@RequestBody @Valid Animal createAnimal) {
+        return animalService.createAnimal(createAnimal);
     }
 
     // {
-    //     "id" : 22,
-    //     "color": "testrouge",
-    //     "name": "Fido",
-    //     "sex": "M",
-    //     "species": {
-    //         "id": 1,
-    //         "commonName": "test",
-    //         "latinName": "test"
-    //     }
+    // "id" : 22,
+    // "color": "testrouge",
+    // "name": "Fido",
+    // "sex": "M",
+    // "species": {
+    // "id": 1,
+    // "commonName": "test",
+    // "latinName": "test"
+    // }
     // }
     @PutMapping()
-    public Animal updateAnimal(@RequestBody @Valid Animal updateAnimal){
+    public Animal updateAnimal(@RequestBody @Valid Animal updateAnimal) {
         return animalService.updateAnimal(updateAnimal);
     }
-    
+
     @DeleteMapping("/delete/{id}")
-    public Animal deleteAnimal(@PathVariable("id") Integer id){
+    public Animal deleteAnimal(@PathVariable("id") Integer id) {
         return animalService.deleteAnimal(id);
     }
-        @GetMapping("/test")
-        public String getTest(){
-            return "un test"  ;
-        }
+
+    @GetMapping("/test")
+    public String getTest() {
+        return "un test";
+    }
+
+    @PostMapping("/untest")
+    public void saveNull(){
+        animalService.createAnimal(null);
+    }
 }
