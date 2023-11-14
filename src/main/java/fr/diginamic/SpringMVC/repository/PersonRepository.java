@@ -3,6 +3,8 @@ package fr.diginamic.springmvc.repository;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -10,8 +12,6 @@ import org.springframework.stereotype.Repository;
 
 import fr.diginamic.springmvc.model.Animal;
 import fr.diginamic.springmvc.model.Person;
-
-
 
 @Repository
 public interface PersonRepository extends CrudRepository<Person, Integer>, PersonRepositoryCustom {
@@ -24,7 +24,9 @@ public interface PersonRepository extends CrudRepository<Person, Integer>, Perso
 
     @Query("from Person p  where :Animal member of p.animals")
     List<Person> findAllPersonByAnimal(@Param("Animal") Animal animals);
-    
+
     List<Person> findAll();
+
+    Page<Person> findAll(Pageable pageable);
 
 }

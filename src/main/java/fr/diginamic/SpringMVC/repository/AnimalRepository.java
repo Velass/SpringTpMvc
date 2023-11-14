@@ -3,6 +3,8 @@ package fr.diginamic.springmvc.repository;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -25,4 +27,6 @@ public interface AnimalRepository extends CrudRepository<Animal, Integer> {
         Boolean hasOwner(@Param("id") Animal id);
 
         List<Animal> findAll();
+
+        Page<Animal> findAll(Pageable pageable);
 }

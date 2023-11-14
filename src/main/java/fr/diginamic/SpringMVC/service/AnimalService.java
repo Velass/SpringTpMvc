@@ -3,6 +3,8 @@ package fr.diginamic.springmvc.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import fr.diginamic.springmvc.model.Animal;
@@ -39,6 +41,10 @@ public class AnimalService {
             animalRepository.deleteById(id);
         }
         return animalToDelete;
+    }
+
+        public Page<Animal> findAll(Pageable pageable) {
+        return animalRepository.findAll(pageable);
     }
 
 }

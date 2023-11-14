@@ -3,8 +3,11 @@ package fr.diginamic.springmvc.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import fr.diginamic.springmvc.model.Animal;
 import fr.diginamic.springmvc.model.Person;
 import fr.diginamic.springmvc.repository.PersonRepository;
 import jakarta.validation.Valid;
@@ -39,6 +42,10 @@ public class PersonService {
             personRepository.deleteById(id);
         }
         return personToDelete;
+    }
+
+        public Page<Person> findAll(Pageable pageable) {
+        return personRepository.findAll(pageable);
     }
 
 }
