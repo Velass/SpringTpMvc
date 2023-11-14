@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
+import fr.diginamic.springmvc.dto.PersonDto;
 import fr.diginamic.springmvc.model.Person;
 import fr.diginamic.springmvc.service.PersonService;
 import jakarta.validation.Valid;
@@ -50,7 +51,7 @@ public class PersonRestController {
     }
 
     @GetMapping("/findPage")
-    public Page<Person> findPage(
+    public Page<PersonDto> findPage(
             @RequestParam(value = "pageNumber", defaultValue = "0") Integer pageNumber,
             @RequestParam(value = "pageSize", defaultValue = "20") Integer pageSize) {
         return personService.findAll(PageRequest.of(pageNumber, pageSize));

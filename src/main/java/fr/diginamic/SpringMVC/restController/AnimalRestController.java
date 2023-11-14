@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
+import fr.diginamic.springmvc.dto.AnimalDto;
 import fr.diginamic.springmvc.model.Animal;
 import fr.diginamic.springmvc.service.AnimalService;
 import jakarta.validation.Valid;
@@ -81,7 +82,7 @@ public class AnimalRestController {
     }
 
     @GetMapping("/findPage")
-    public Page<Animal> findPage(
+    public Page<AnimalDto> findPage(
             @RequestParam(value = "pageNumber", defaultValue = "0") Integer pageNumber,
             @RequestParam(value = "pageSize", defaultValue = "20") Integer pageSize
             ) {

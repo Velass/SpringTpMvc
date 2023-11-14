@@ -7,7 +7,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import fr.diginamic.springmvc.dto.AnimalDto;
 import fr.diginamic.springmvc.exception.EntityToCreateHasAnIdException;
+import fr.diginamic.springmvc.mapper.AnimalDtoMapper;
 import fr.diginamic.springmvc.model.Animal;
 import fr.diginamic.springmvc.repository.AnimalRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -56,8 +58,9 @@ public class AnimalService {
         return animalToDelete;
     }
 
-    public Page<Animal> findAll(Pageable pageable) {
-        return animalRepository.findAll(pageable);
+    public Page<AnimalDto> findAll(Pageable pageable) {
+        Page<Animal> pageAnimal = animalRepository.findAll(pageable);
+        return pageAnimal.map((animal) -> AnimalDtoMapper.toDto(animal));
     }
 
 }

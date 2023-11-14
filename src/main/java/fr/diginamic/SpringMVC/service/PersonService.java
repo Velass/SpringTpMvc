@@ -7,7 +7,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import fr.diginamic.springmvc.dto.PersonDto;
 import fr.diginamic.springmvc.exception.EntityToCreateHasAnIdException;
+import fr.diginamic.springmvc.mapper.PersonDtoMapper;
 import fr.diginamic.springmvc.model.Person;
 import fr.diginamic.springmvc.repository.PersonRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -57,8 +59,9 @@ public class PersonService {
         return personToDelete;
     }
 
-    public Page<Person> findAll(Pageable pageable) {
-        return personRepository.findAll(pageable);
+    public Page<PersonDto> findAll(Pageable pageable) {
+        Page<Person> pagePerson = personRepository.findAll(pageable);
+        return pagePerson.map((person) -> PersonDtoMapper.toDto(person));
     }
 
 }
