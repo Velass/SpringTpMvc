@@ -7,9 +7,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import fr.diginamic.springmvc.model.Animal;
+import fr.diginamic.springmvc.exception.EntityToCreateHasAnIdException;
 import fr.diginamic.springmvc.model.Person;
 import fr.diginamic.springmvc.repository.PersonRepository;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 
 @Service
@@ -24,27 +25,39 @@ public class PersonService {
     }
 
     public Person findById(Integer id) {
-        return personRepository.findById(id).orElse(null);
+        return personRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("ID : " + id + " introuvable"));
 
     }
 
-    public Person createPerson(@Valid Person createPerson){
+    public Person createPerson(@Valid Person createPerson) {
+        if (createPerson.getId() != 0) {
+            throw new EntityToCreateHasAnIdException("présence d’un ID ");
+        }
         return personRepository.save(createPerson);
     }
 
-    public Person updatePerson(@Valid Person updatePerson){
-        return personRepository.save(updatePerson);
+    public Person updatePerson(@Valid Person updatePerson) {
+        boolean idInUpdatePerson = personRepository.existsById(updatePerson.getId());
+        if (updatePerson.getId() == 0) {
+            throw new EntityToCreateHasAnIdException("non-présence d’un ID ");
+        }
+        if (idInUpdatePerson != false) {
+            return personRepository.save(updatePerson);
+        }
+        throw new EntityNotFoundException("ID : " + updatePerson.getId() + " introuvable");
     }
 
-    public Person deletePerson(Integer id){
-        Person personToDelete = personRepository.findById(id).orElse(null);
-        if (personToDelete!= null) {
+    public Person deletePerson(Integer id) {
+        Person personToDelete = personRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("ID : " + id + " introuvable"));
+        if (personToDelete != null) {
             personRepository.deleteById(id);
         }
         return personToDelete;
     }
 
-        public Page<Person> findAll(Pageable pageable) {
+    public Page<Person> findAll(Pageable pageable) {
         return personRepository.findAll(pageable);
     }
 

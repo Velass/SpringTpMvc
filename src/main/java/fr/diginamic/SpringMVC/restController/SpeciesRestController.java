@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
-import fr.diginamic.springmvc.model.Person;
 import fr.diginamic.springmvc.model.Species;
 import fr.diginamic.springmvc.service.SpeciesService;
 import jakarta.validation.Valid;

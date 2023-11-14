@@ -7,9 +7,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import fr.diginamic.springmvc.model.Person;
+import fr.diginamic.springmvc.exception.EntityToCreateHasAnIdException;
 import fr.diginamic.springmvc.model.Species;
 import fr.diginamic.springmvc.repository.SpeciesRepository;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 
 @Service
@@ -24,20 +25,30 @@ public class SpeciesService {
     }
 
     public Species findById(Integer id) {
-        return speciesRepository.findById(id).orElse(null);
+        return speciesRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("ID : " + id + " introuvable"));
 
     }
 
     public Species createSpecies(@Valid Species createSpecies){
+         if (createSpecies.getId() != 0) {
+            throw new EntityToCreateHasAnIdException("présence d’un ID ");
+        }
         return speciesRepository.save(createSpecies);
     }
 
     public Species updateSpecies(@Valid Species updateSpecies){
-        return speciesRepository.save(updateSpecies);
+        boolean idInUpdateSpecies = speciesRepository.existsById(updateSpecies.getId());
+        if (updateSpecies.getId() == 0) {
+            throw new EntityToCreateHasAnIdException("non-présence d’un ID ");
+        }
+        if (idInUpdateSpecies != false) {
+            return speciesRepository.save(updateSpecies);
+        }
+        throw new EntityNotFoundException("ID : " + updateSpecies.getId() + " introuvable");
     }
 
     public Species deleteSpecies(Integer id){
-        Species speciesToDelete = speciesRepository.findById(id).orElse(null);
+        Species speciesToDelete = speciesRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("ID : " + id + " introuvable"));
         if (speciesToDelete!= null) {
             speciesRepository.deleteById(id);
         }
