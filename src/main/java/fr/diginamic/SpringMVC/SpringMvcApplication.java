@@ -6,6 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import fr.diginamic.springmvc.repository.AnimalRepository;
 import fr.diginamic.springmvc.repository.PersonRepository;
@@ -14,6 +15,7 @@ import jakarta.transaction.Transactional;
 
 @SpringBootApplication
 @EnableAspectJAutoProxy
+@EnableScheduling
 public class SpringMvcApplication implements CommandLineRunner {
 
 	@Autowired
