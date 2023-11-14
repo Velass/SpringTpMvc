@@ -49,7 +49,7 @@ public class AnimalService {
     }
 
     public Animal deleteAnimal(Integer id) {
-        Animal animalToDelete = animalRepository.findById(id).orElse(null);
+        Animal animalToDelete = animalRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("ID : " + id + " introuvable"));
         if (animalToDelete != null) {
             animalRepository.deleteById(id);
         }
