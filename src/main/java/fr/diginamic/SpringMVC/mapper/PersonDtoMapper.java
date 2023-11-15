@@ -10,13 +10,14 @@ public class PersonDtoMapper {
         personDto.setId(person.getId());
         personDto.setAge(person.getAge());
         personDto.setName(person.getLastname().toUpperCase() + " " + person.getFirstname());
+        if (person.getAnimals() != null) {
+            String[] animalNames = person.getAnimals().stream()
+                    .map(Animal::getName)
+                    .toArray(String[]::new);
 
-        String[] animalNames = person.getAnimals().stream()
-                .map(Animal::getName)
-                .toArray(String[]::new);
+            personDto.setAnimals(animalNames);
 
-        personDto.setAnimals(animalNames);
-
+        }
         return personDto;
     }
 }
