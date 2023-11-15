@@ -45,7 +45,7 @@ public class RestController {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ErrorDto handleValidationException(MethodArgumentNotValidException exception, WebRequest request) {
         exception.printStackTrace();
-        return new InvalidEntityErrorDto(exception.getBindingResult());
+        return new InvalidEntityErrorDto(exception.getBindingResult(), request.getDescription(false));
 
     }
 

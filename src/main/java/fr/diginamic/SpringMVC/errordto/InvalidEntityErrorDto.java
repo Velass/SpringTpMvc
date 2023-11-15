@@ -2,6 +2,7 @@ package fr.diginamic.springmvc.errordto;
 
 import org.springframework.validation.BindingResult;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -9,8 +10,8 @@ public class InvalidEntityErrorDto extends ErrorDto {
     private List<String> globalErrors;
     private List<String> fieldErrors;
 
-    public InvalidEntityErrorDto(BindingResult bindingResult) {
-        super(400, null, "erreur validation", null);
+    public InvalidEntityErrorDto(BindingResult bindingResult, String url) {
+        super(400, LocalDateTime.now(), "erreur validation", url);
 
         this.globalErrors = bindingResult.getGlobalErrors()
                 .stream()
